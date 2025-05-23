@@ -1,0 +1,30 @@
+{
+  "extends": "expo/tsconfig.base",
+  "compilerOptions": {
+    "strict": true,
+    "baseUrl": ".", // Beibehalt
+    "paths": {
+      // Entferne den zu breiten "@/*" Alias
+      "@/components/*": ["components/*"],
+      "@/constants/*": ["constants/*"],
+      "@/contexts/*": ["contexts/*"], // Sicherstellen, dass dein Ordner "contexts" heißt
+      "@/hooks/*": ["hooks/*"],
+      "@/types/*": ["types/*"],
+      "@/assets/*": ["assets/*"],
+      "@/app/*": ["app/*"]
+      // Du könntest einen allgemeinen Alias für den Root des src-Ordners hinzufügen,
+      // wenn du einen hättest, z.B. "@src/*": ["src/*"]
+    }
+  },
+  "include": [
+    "**/*.ts",
+    "**/*.tsx"
+    // Expliziten Eintrag für ScreenWrapper.tsx entfernt, da er von **/*.tsx abgedeckt wird
+  ],
+  "exclude": [ // Optional, aber oft nützlich
+    "node_modules",
+    "babel.config.js",
+    "metro.config.js",
+    "jest.config.js"
+  ]
+}
